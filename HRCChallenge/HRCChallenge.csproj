@@ -84,6 +84,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Factories\MainWindowViewModelFactory.cs" />
+    <Compile Include="Validation\MatrixRowValidationRule.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\MatrixSizeViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
@@ -152,6 +153,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HRCChallenge.Common\HRCChallenge.Common.csproj">
+      <Project>{249270C0-F1F2-48F3-94F1-FA0722727349}</Project>
+      <Name>HRCChallenge.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HRCChallenge.WebService\HRCChallenge.WebService.csproj">
       <Project>{BC2C2966-A8F8-4046-A339-41CC61D8B9A7}</Project>
       <Name>HRCChallenge.WebService</Name>

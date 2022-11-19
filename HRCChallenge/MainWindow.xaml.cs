@@ -36,7 +36,19 @@ namespace HRCChallenge
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //var sides = (int) e.AddedItems[0];
+            //ReinitDataGrid(sides);
+        }
 
+        private void ReinitDataGrid(int sides)
+        {
+            mainWindowDataGrid.Columns.Clear();
+            
+
+            for (int i = 0; i < sides; i++)
+            {
+                //mainWindowDataGrid.Columns.Add(new DataGridTextColumn());
+            }
         }
     }
 }

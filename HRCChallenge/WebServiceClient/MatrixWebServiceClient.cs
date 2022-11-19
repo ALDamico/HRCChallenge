@@ -1,11 +1,6 @@
 ﻿using HRCChallenge.MatrixOperationsService;
-using HRCChallenge.WebService;
 using HRCChallenge.WebService.Responses;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using HRCChallenge.WebService.Utils;
 
 namespace HRCChallenge.WebServiceClient
 {
@@ -21,9 +16,15 @@ namespace HRCChallenge.WebServiceClient
 
         public MatrixDeterminantResponse CalculateDeterminant(int[,] matrix)
         {
-            var flattenedArray = new int[matrix.Length];
-            for (int) MatrixOperationsServiceClient
-            return matrixOperationsServiceClient.CalcDeterminant(matrix);
+            var flattenedArray = MatrixUtils.FlattenBidimensionalArray(matrix);
+            
+            return matrixOperationsServiceClient.CalcDeterminant(flattenedArray);
+        }
+
+        public string FilterAndOrderElements(int[,] matrix)
+        {
+            var flattenedArray = MatrixUtils.FlattenBidimensionalArray(matrix);
+            return matrixOperationsServiceClient.FilterAndOrderValues(flattenedArray);
         }
 
     }

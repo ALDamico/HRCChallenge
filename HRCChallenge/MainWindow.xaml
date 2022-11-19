@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:HRCChallenge.ViewModels"
-        xmlns:local="clr-namespace:HRCChallenge"
+        xmlns:local="clr-namespace:HRCChallenge" xmlns:validation="clr-namespace:HRCChallenge.Validation"
         d:DataContext="{d:DesignInstance vm:MainWindowViewModel}"
         Loaded="Window_Loaded"
         mc:Ignorable="d"
@@ -22,10 +22,16 @@
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0">Grid size</Label>
-        <ComboBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding AvailableMatrixSizes}" DisplayMemberPath="Caption" SelectedValuePath="Side" SelectionChanged="ComboBox_SelectionChanged"></ComboBox>
+        <ComboBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding AvailableMatrixSizes}" DisplayMemberPath="Caption" SelectedValuePath="Side" SelectedValue="{Binding NumberOfSides}" SelectionChanged="ComboBox_SelectionChanged"></ComboBox>
         <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Vertical">
             <Button Content="Calculate Determinant"></Button>
             <Button Content="Filter and order values"/>
         </StackPanel>
+
+        <DataGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserSortColumns="False" x:Name="mainWindowDataGrid" ItemsSource="{Binding Matrix}">
+            <DataGrid.RowValidationRules>
+                <validation:MatrixRowValidationRule  ValidationStep="CommittedValue"></validation:MatrixRowValidationRule>
+            </DataGrid.RowValidationRules>
+        </DataGrid>
     </Grid>
 </Window>
