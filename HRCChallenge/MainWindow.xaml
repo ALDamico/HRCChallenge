@@ -12,7 +12,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -22,16 +22,31 @@
         </Grid.ColumnDefinitions>
 
         <Label Grid.Row="0" Grid.Column="0">Grid size</Label>
-        <ComboBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding AvailableMatrixSizes}" DisplayMemberPath="Caption" SelectedValuePath="Side" SelectedValue="{Binding NumberOfSides}" SelectionChanged="ComboBox_SelectionChanged"></ComboBox>
+        <ComboBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding AvailableMatrixSizes}" DisplayMemberPath="Caption" SelectedValuePath="Side" SelectedValue="{Binding NumberOfSides, IsAsync=True}"></ComboBox>
         <StackPanel Grid.Row="0" Grid.Column="2" Orientation="Vertical">
             <Button Content="Calculate Determinant"></Button>
             <Button Content="Filter and order values"/>
         </StackPanel>
 
-        <DataGrid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserSortColumns="False" x:Name="mainWindowDataGrid" ItemsSource="{Binding Matrix}">
+        <DataGrid Grid.Row="1" Grid.Column="0" 
+                  Grid.ColumnSpan="3" 
+                  CanUserAddRows="False" 
+                  CanUserDeleteRows="False" 
+                  CanUserReorderColumns="False" 
+                  CanUserSortColumns="False" 
+                  x:Name="mainWindowDataGrid" 
+                  ItemsSource="{Binding Matrix}" 
+                  ClipboardCopyMode="ExcludeHeader" 
+                  EnableColumnVirtualization="True" 
+                  EnableRowVirtualization="True"
+                  HorizontalScrollBarVisibility="Visible"
+                  VerticalScrollBarVisibility="Visible"
+                  >
             <DataGrid.RowValidationRules>
                 <validation:MatrixRowValidationRule  ValidationStep="CommittedValue"></validation:MatrixRowValidationRule>
+                <validation:MatrixRowValueValidationRule ValidationStep="CommittedValue" MaxValue="9"/>
             </DataGrid.RowValidationRules>
+            
         </DataGrid>
     </Grid>
 </Window>

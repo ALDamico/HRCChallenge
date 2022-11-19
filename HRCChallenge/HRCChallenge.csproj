@@ -85,6 +85,7 @@
     </Compile>
     <Compile Include="Factories\MainWindowViewModelFactory.cs" />
     <Compile Include="Validation\MatrixRowValidationRule.cs" />
+    <Compile Include="Validation\MatrixRowValueValidationRule.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\MatrixSizeViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />

@@ -34,19 +34,9 @@ namespace HRCChallenge.ViewModels
             set
             {
                 numberOfSides = value;
-                
-                matrix = new DataTable();
-                for (int i = 0; i < numberOfSides; i++)
-                {
-                    matrix.Columns.Add(new DataColumn("Col" + (i + 1), typeof(int)));
-                }
 
-                for (int i = 0; i < numberOfSides; i++)
-                {
-                    matrix.Rows.Add();
-                }
+                Task.Run(InitMatrix);
                 OnPropertyChanged(nameof(NumberOfSides));
-                OnPropertyChanged(nameof(Matrix));
             }
         }
         private DataTable matrix;
@@ -55,7 +45,29 @@ namespace HRCChallenge.ViewModels
         public DataTable Matrix
         {
             get => matrix;
-           
+        }
+
+        private async Task<bool> InitMatrix()
+        {
+            matrix = new DataTable();
+            for (int i = 0; i < numberOfSides; i++)
+            {
+                matrix.Columns.Add(new DataColumn("Col" + (i + 1), typeof(int)));
+            }
+            var randomGenerator = new Random();
+            for (int i = 0; i < numberOfSides; i++)
+            {
+                
+                var randomValues = new object[numberOfSides];
+                for (int j = 0; j < numberOfSides; j++)
+                {
+                    randomValues[j] = randomGenerator.Next() % 10;
+                }
+               
+                matrix.Rows.Add(randomValues);
+            }
+            OnPropertyChanged(nameof(Matrix));
+            return await Task.FromResult(true);
         }
     }
 }
