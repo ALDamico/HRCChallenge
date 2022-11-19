@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="5116a78a-e11d-499e-9e80-6615092a9fe0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/HRCChallenge.WebService/Service1/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="aadd2f11-6cfb-427a-94ab-85709b46b9bb" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/HRCChallenge.WebService/Service1/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="29912ec2-5a4d-44a1-b132-892ff760026a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/HRCChallenge.WebService/Service1/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="58f365a9-8b32-484c-ad72-1bb4fdf8a519" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/HRCChallenge.WebService/Service1/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="e3b335dc-1355-4fdc-a802-65427212e955" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/HRCChallenge.WebService/Service1/mex" />
+    <MetadataFile FileName="HRCChallenge.WebService.Responses.xsd" MetadataType="Schema" ID="e96b2816-9e7b-4ea2-b663-e8f91b9898a4" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/HRCChallenge.WebService/Service1/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,17 @@
+{
+  "matrixSizes": [
+    {
+      "side": 4,
+      "caption": "4x4"
+    },
+    {
+      "side": 5,
+      "caption": "5x5"
+    },
+    {
+      "side": 36,
+      "caption": "36x36"
+    }
+  ],
+  "webServiceEndpoint":  "localhost"
+}

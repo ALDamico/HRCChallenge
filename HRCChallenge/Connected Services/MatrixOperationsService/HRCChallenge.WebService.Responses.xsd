@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HRCChallenge.WebService.Responses" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HRCChallenge.WebService.Responses" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="MatrixDeterminantResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Determinant" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ErrorDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsSuccessful" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="MatrixDeterminantResponse" nillable="true" type="tns:MatrixDeterminantResponse" />
+</xs:schema>
