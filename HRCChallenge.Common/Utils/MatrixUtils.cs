@@ -1,6 +1,7 @@
 ﻿using MathNet.Numerics.LinearAlgebra;
 using MathNet.Numerics.LinearAlgebra.Complex;
 using System;
+using System.Data;
 
 namespace HRCChallenge.WebService.Utils
 {
@@ -45,6 +46,27 @@ namespace HRCChallenge.WebService.Utils
                     output[idx] = matrix[i, j];
                     idx++;
                 }                
+            }
+
+            return output;
+        }
+
+        public static int[,] DataTableToBidimensionalArray(DataTable dataTable)
+        {
+            if (dataTable == null)
+            {
+                return null;
+            }
+
+            var numberOfColumns = dataTable.Columns.Count;
+            var numberOfRows = dataTable.Rows.Count;
+            var output = new int[numberOfRows, numberOfColumns];
+            for (int i = 0; i < numberOfRows; i++)
+            {
+                DataRow currentRow = dataTable.Rows[i];
+                for (int j = 0; j < numberOfColumns; j++) {
+                    output[i, j] = (int) currentRow.ItemArray[j];
+                }
             }
 
             return output;

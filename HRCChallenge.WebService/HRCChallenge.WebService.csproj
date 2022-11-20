@@ -51,11 +51,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MatrixOperationsService.cs" />
     <Compile Include="Responses\MatrixDeterminantResponse.cs" />
-    <Compile Include="Utils\MatrixUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HRCChallenge.Common\HRCChallenge.Common.csproj">
+      <Project>{249270C0-F1F2-48F3-94F1-FA0722727349}</Project>
+      <Name>HRCChallenge.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

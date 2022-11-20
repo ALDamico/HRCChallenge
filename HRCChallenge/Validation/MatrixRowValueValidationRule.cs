@@ -18,7 +18,6 @@ namespace HRCChallenge.Validation
             DataRowView dataRow = (value as BindingGroup)?.Items[0] as DataRowView;
             foreach (int element in dataRow.Row.ItemArray)
             {
-                if (element == null) continue;
                 if (element > MaxValue)
                 {
                     return new ValidationResult(false, $"Value can't be greater than {MaxValue}");

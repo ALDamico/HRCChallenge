@@ -32,7 +32,7 @@ namespace HRCChallenge.WebService
             {
                 // The PDF says nothing of not using open-source libraries :)
                 var m = MatrixUtils.MonoDimensionalArrayToMatrix(matrix);
-                var determinant = (int) Math.Round( m.Determinant(), 0);
+                var determinant =  Math.Round( m.Determinant(), 0);
                 result.Determinant = determinant;
             }
             catch (Exception ex)

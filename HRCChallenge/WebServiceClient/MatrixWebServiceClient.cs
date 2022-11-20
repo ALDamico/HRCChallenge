@@ -6,12 +6,10 @@ namespace HRCChallenge.WebServiceClient
 {
     internal class MatrixWebServiceClient
     {
-        public MatrixWebServiceClient(string endpoint)
+        public MatrixWebServiceClient()
         {
-            webServiceEndpoint = endpoint;
-            matrixOperationsServiceClient = new MatrixOperationsServiceClient(webServiceEndpoint);
+            matrixOperationsServiceClient = new MatrixOperationsServiceClient();
         }
-        private string webServiceEndpoint;
         private MatrixOperationsServiceClient matrixOperationsServiceClient;
 
         public MatrixDeterminantResponse CalculateDeterminant(int[,] matrix)

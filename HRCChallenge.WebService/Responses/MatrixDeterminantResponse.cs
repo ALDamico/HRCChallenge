@@ -13,7 +13,7 @@ namespace HRCChallenge.WebService.Responses
         [DataMember]
         public bool IsSuccessful { get; set; }
         [DataMember]
-        public int? Determinant { get; set; }
+        public double? Determinant { get; set; }
         [DataMember]
         public string ErrorDescription { get; set; }
     }

@@ -1,5 +1,6 @@
 ﻿using HRCChallenge.Configuration;
 using HRCChallenge.ViewModels;
+using HRCChallenge.WebServiceClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace HRCChallenge.Factories
     {
         public static MainWindowViewModel GetMainWindowViewModel(AppConfiguration configuration)
         {
-            var viewModel = new MainWindowViewModel();
+            var viewModel = new MainWindowViewModel(new MatrixWebServiceClient());
             foreach (var matrixSize in configuration.MatrixSizes)
             {
                 viewModel.AvailableMatrixSizes.Add(matrixSize);

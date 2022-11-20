@@ -34,6 +34,32 @@ namespace HRCChallenge
             DataContext = mainWindowViewModel;
         }
 
-       
+        private MainWindowViewModel GetViewModel()
+        {
+            return DataContext as MainWindowViewModel;
+        }
+
+        private void calculateDeterminantButton_Click(object sender, RoutedEventArgs e)
+        {
+            var viewModel = GetViewModel();
+            if (!viewModel.CanCallWebService())
+            {
+                MessageBox.Show("Unable to calculate determinant");
+                return;
+            }
+            viewModel.CalculateDeterminant();
+        }
+
+        private void filterValuesButton_Click(object sender, RoutedEventArgs e)
+        {
+            var viewModel = GetViewModel();
+            if (!viewModel.CanCallWebService())
+            {
+                MessageBox.Show("Unable to filter values");
+                return;
+            }
+
+            viewModel.FilterValues();
+        }
     }
 }
