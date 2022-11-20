@@ -45,11 +45,20 @@
                   EnableRowVirtualization="True"
                   HorizontalScrollBarVisibility="Visible"
                   VerticalScrollBarVisibility="Visible"
+                  SelectionMode="Extended"
+                  SelectionUnit="Cell"
+                  CopyingRowClipboardContent="mainWindowDataGrid_CopyingRowClipboardContent"
+                  CurrentCellChanged="mainWindowDataGrid_CurrentCellChanged"
+                  CellEditEnding="mainWindowDataGrid_CellEditEnding"
+                  
                   >
             <DataGrid.RowValidationRules>
                 <validation:MatrixRowValidationRule  ValidationStep="CommittedValue"></validation:MatrixRowValidationRule>
                 <validation:MatrixRowValueValidationRule ValidationStep="CommittedValue" MaxValue="9"/>
             </DataGrid.RowValidationRules>
+            <DataGrid.CommandBindings>
+                <CommandBinding x:Name="PasteCommandBinding" Command="Paste" CanExecute="PasteCommandBinding_CanExecute" Executed="PasteCommandBinding_Executed"></CommandBinding>
+            </DataGrid.CommandBindings>
             
         </DataGrid>
     </Grid>

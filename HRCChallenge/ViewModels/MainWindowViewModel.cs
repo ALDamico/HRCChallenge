@@ -8,6 +8,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace HRCChallenge.ViewModels
 {
@@ -18,6 +19,7 @@ namespace HRCChallenge.ViewModels
             AvailableMatrixSizes = new ObservableCollection<MatrixSizeViewModel>();
             ValidationErrors = new ObservableCollection<object>();
             this.webServiceClient = webServiceClient;
+            ClearCopyBuffer();
         }
 
         private MatrixWebServiceClient webServiceClient;
@@ -121,12 +123,60 @@ namespace HRCChallenge.ViewModels
         {
             var convertedMatrix = MatrixUtils.DataTableToBidimensionalArray(Matrix);
             var filteredElementsString = webServiceClient.FilterAndOrderElements(convertedMatrix);
-            if (filteredElementsString == null) {
+            if (filteredElementsString == null)
+            {
                 FilteredValuesLabel = "The service didn't respond";
                 return;
             }
 
             FilteredValuesLabel = filteredElementsString;
+        }
+
+        private List<List<int>> copyBuffer;
+        private int[] copyBufferRowCol;
+        internal void ClearCopyBuffer()
+        {
+            copyBuffer = new List<List<int>>();
+        }
+
+        private IList<DataGridCellInfo> selectedCells;
+
+        internal void UpdateSelectedCells(IList<DataGridCellInfo> newCells)
+        {
+            selectedCells = newCells;
+        }
+
+        public int SelectedCellsCount => selectedCells != null ? selectedCells.Count : 0;
+        private int startCopyColumn;
+        private int endCopyColumn;
+
+        internal void AddRowToCopyBuffer(List<DataGridClipboardCellContent> clipboardRowContent, int startCopyColumn, int endCopyColumn)
+        {
+            if (startCopyColumn != this.startCopyColumn || endCopyColumn != this.endCopyColumn)
+            {
+                this.startCopyColumn = startCopyColumn;
+                this.endCopyColumn = endCopyColumn;
+                copyBuffer.Clear();
+            }
+            var row = new List<int>();
+            foreach (var element in clipboardRowContent)
+            {
+                row.Add((int)element.Content);
+            }
+            copyBuffer.Add(row);
+        }
+
+        internal void PasteRows(int firstCellX, int firstCellY, int lastCellX, int lastCellY)
+        {
+            var xDelta = lastCellX - firstCellX;
+            var yDelta = lastCellY - firstCellY;
+            for (int i = firstCellX; i <= lastCellX; i++)
+            {
+                for (int j = firstCellY; j <= lastCellY; j++)
+                {
+                    matrix.Rows[i][j] = copyBuffer[i % copyBuffer.Count][ j  % copyBuffer.First().Count];
+                }
+            }
         }
 
         private string filteredValuesLabel;
