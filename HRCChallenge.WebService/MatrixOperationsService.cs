@@ -52,7 +52,7 @@ namespace HRCChallenge.WebService
             var temporaryList = new List<int>();
             foreach (var element in matrix)
             {
-                if (element % 1 == 0)
+                if (element % 2 == 0)
                 {
                     temporaryList.Add(element);
                 } 

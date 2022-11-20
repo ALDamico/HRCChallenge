@@ -9,6 +9,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRCChallenge.WebService", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRCChallenge.Common", "HRCChallenge.Common\HRCChallenge.Common.csproj", "{249270C0-F1F2-48F3-94F1-FA0722727349}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRCChallenge.WebService.Tests", "HRCChallenge.WebService.Tests\HRCChallenge.WebService.Tests.csproj", "{9CA282D9-6362-4EA9-AAF2-625B7FB29A2C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BC2C2966-A8F8-4046-A339-41CC61D8B9A7} = {BC2C2966-A8F8-4046-A339-41CC61D8B9A7}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +32,10 @@ Global
 		{249270C0-F1F2-48F3-94F1-FA0722727349}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{249270C0-F1F2-48F3-94F1-FA0722727349}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{249270C0-F1F2-48F3-94F1-FA0722727349}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CA282D9-6362-4EA9-AAF2-625B7FB29A2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CA282D9-6362-4EA9-AAF2-625B7FB29A2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CA282D9-6362-4EA9-AAF2-625B7FB29A2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CA282D9-6362-4EA9-AAF2-625B7FB29A2C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
